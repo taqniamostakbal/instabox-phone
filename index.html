@@ -140,6 +140,27 @@
   .chip .tile-xs{width:22px; height:22px; box-shadow:inset 0 1px 1px rgba(255,255,255,.45), inset 0 -2px 4px rgba(0,0,0,.14), 0 3px 8px var(--glow, rgba(0,0,0,.25));}
   .chip .tile-xs svg{width:12.5px; height:12.5px;}
   .chip .tile-xs i{font-size:12px;}
+  .hero-cta-wrap{margin-top:20px; display:flex; flex-direction:column; gap:9px; align-items:flex-start;}
+  .hero-cta{
+    display:inline-flex; align-items:center; gap:11px;
+    background:#fff; color:var(--v900);
+    font-weight:900; font-size:1.02rem; line-height:1.4;
+    text-decoration:none;
+    border-radius:16px; padding:13px 20px 13px 22px;
+    box-shadow:0 10px 26px rgba(20,4,50,.32), inset 0 1px 0 #fff;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .hero-cta:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(20,4,50,.38), inset 0 1px 0 #fff;}
+  .hero-cta:active{transform:scale(.98);}
+  .hero-cta .cta-ic{
+    width:34px; height:34px; flex:none;
+    display:inline-flex; align-items:center; justify-content:center;
+    border-radius:31%; color:#fff; font-size:15px;
+    background:linear-gradient(145deg,#a78bfa 0%,#7c3aed 55%,#5b21b6 100%);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.45), inset 0 -2px 4px rgba(0,0,0,.14), 0 4px 10px rgba(124,58,237,.4);
+  }
+  .hero-cta-note{font-size:.83rem; font-weight:700; color:#ddd0ff; display:flex; align-items:center; gap:7px;}
+  .hero-cta-note i{font-size:.78rem;}
 
   /* ===== Layout ===== */
   .wrap{max-width:680px; margin:0 auto; padding:0 14px 40px;}
@@ -162,6 +183,81 @@
     background:var(--v100); border-radius:999px; padding:2px 10px;
     margin-inline-start:auto; flex:none; letter-spacing:0;
   }
+
+  /* ===== Journey strip ===== */
+  .journey{padding:18px 16px 14px;}
+  .journey-title{
+    display:flex; align-items:center; gap:9px;
+    font-weight:900; font-size:1rem; color:var(--v900); margin:0 0 4px;
+  }
+  .journey-sub{margin:0 0 16px; font-size:.86rem; font-weight:600; color:var(--ink-soft);}
+  .journey-flow{
+    list-style:none; margin:0; padding:0;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:6px;
+    position:relative;
+  }
+  .journey-flow::before{
+    content:""; position:absolute;
+    top:23px; inset-inline-start:12%; inset-inline-end:12%;
+    height:3px; border-radius:99px;
+    background:linear-gradient(90deg, var(--v100), #d8ccfb, var(--v100));
+    z-index:0;
+  }
+  .j-step{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:8px; padding:0 2px;
+  }
+  .j-step .tile-lg{width:46px; height:46px; position:relative; outline:4px solid #fff;}
+  .j-step-num{
+    position:absolute; top:-7px; inset-inline-end:-7px; z-index:2;
+    min-width:20px; height:20px; padding:0 5px;
+    border-radius:999px; background:var(--v900); color:#fff;
+    border:2px solid #fff; box-shadow:0 2px 6px rgba(42,10,78,.3);
+    font-size:.7rem; font-weight:900; line-height:1;
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  .j-step p{margin:0; font-size:.8rem; font-weight:800; line-height:1.55; color:var(--ink);}
+  .j-step p span{display:block; font-size:.74rem; font-weight:600; color:var(--ink-soft); line-height:1.5;}
+  .j-arrow{
+    position:absolute; top:15px; inset-inline-end:-11px; z-index:2;
+    color:#b9a5ec; font-size:.72rem;
+  }
+  @media (max-width:520px){
+    .journey-flow{grid-template-columns:1fr 1fr; gap:16px 8px;}
+    .journey-flow::before{display:none;}
+    .j-arrow{display:none;}
+  }
+
+  /* ===== Platform gateway box ===== */
+  .gateway{
+    display:flex; gap:13px; align-items:flex-start;
+    background:linear-gradient(150deg, var(--v950) 0%, var(--v800) 55%, var(--v700) 100%);
+    border-radius:16px; padding:15px 15px;
+    margin-bottom:16px; color:#fff;
+    box-shadow:0 8px 22px rgba(76,29,149,.28);
+    position:relative; overflow:hidden;
+  }
+  .gateway::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.13) 1px, transparent 1.4px);
+    background-size:20px 20px; opacity:.3;
+  }
+  .gateway-body{flex:1; min-width:0; position:relative; z-index:1;}
+  .gateway-body p{margin:0 0 11px; font-size:.89rem; font-weight:700; line-height:1.7; color:#efe9ff;}
+  .gateway-body p strong{color:#fff; font-weight:900;}
+  .gateway-btn{
+    display:inline-flex; align-items:center; gap:9px;
+    background:#fff; color:var(--v900);
+    font-weight:900; font-size:.9rem; line-height:1.3;
+    text-decoration:none; border-radius:12px; padding:10px 16px;
+    box-shadow:0 5px 14px rgba(20,4,50,.3);
+    transition:transform .13s, box-shadow .15s;
+  }
+  .gateway-btn:hover{transform:translateY(-1px); box-shadow:0 8px 18px rgba(20,4,50,.36);}
+  .gateway-btn:active{transform:scale(.97);}
+  .gateway-btn i{font-size:.92rem; color:var(--v700);}
+  .gateway .tile-lg{position:relative; z-index:1; margin-top:2px;}
 
   /* ===== Token input ===== */
   label.field-label{display:block; font-weight:800; font-size:.92rem; margin-bottom:8px;}
@@ -372,6 +468,13 @@
     </div>
     <h1>مولّد اتصال InstaBox للهاتف</h1>
     <p class="lead">ألصق رمز الوصول الخاص بك مرة واحدة، واحصل على أوامر الاتصال جاهزة للنسخ، دون أن تكتب حرفًا واحدًا بنفسك. وبعد ذلك يصبح اتصالك اليومي كلمة واحدة فقط: <span class="mono" dir="ltr">box</span></p>
+    <div class="hero-cta-wrap">
+      <a class="hero-cta" href="https://instabox.sh" target="_blank" rel="noopener">
+        <span class="cta-ic"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        افتح منصة InstaBox
+      </a>
+      <span class="hero-cta-note"><i class="fa-solid fa-arrow-turn-up"></i> تفتح المنصة في تبويب جديد، وتبقى هذه الصفحة مفتوحة لتعود إليها مباشرة.</span>
+    </div>
     <div class="hero-chips">
       <span class="chip">
         <span class="tile tile-xs g-indigo"><i class="fa-solid fa-mobile-screen-button"></i></span>
@@ -391,8 +494,50 @@
 
 <main class="wrap">
 
+  <!-- Journey strip -->
+  <section class="card card-first journey" aria-labelledby="j-title">
+    <h2 class="journey-title" id="j-title">
+      <span class="tile tile-sm g-violet"><i class="fa-solid fa-route"></i></span>
+      رحلتك في أربع خطوات
+    </h2>
+    <p class="journey-sub">اتبع هذا المسار بالترتيب، وستنتقل بين المنصة وهذه الصفحة بسهولة تامة.</p>
+    <ol class="journey-flow">
+      <li class="j-step">
+        <span class="tile tile-lg g-violet">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span class="j-step-num">١</span>
+        </span>
+        <p>افتح المنصة وسجّل الدخول <span>من زر «افتح منصة InstaBox»</span></p>
+        <span class="j-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
+      </li>
+      <li class="j-step">
+        <span class="tile tile-lg g-fuchsia">
+          <i class="fa-solid fa-copy"></i>
+          <span class="j-step-num">٢</span>
+        </span>
+        <p>انسخ رمز الوصول <span>من لوحة تحكم InstaBox</span></p>
+        <span class="j-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
+      </li>
+      <li class="j-step">
+        <span class="tile tile-lg g-indigo">
+          <i class="fa-solid fa-paste"></i>
+          <span class="j-step-num">٣</span>
+        </span>
+        <p>الصقه هنا <span>في خانة رمز الوصول بالأسفل</span></p>
+        <span class="j-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
+      </li>
+      <li class="j-step">
+        <span class="tile tile-lg g-teal">
+          <i class="fa-solid fa-terminal"></i>
+          <span class="j-step-num">٤</span>
+        </span>
+        <p>انسخ الأوامر واتصل <span>من هاتفك في دقيقة واحدة</span></p>
+      </li>
+    </ol>
+  </section>
+
   <!-- Step 1 : token -->
-  <section class="card card-first" aria-labelledby="t-title">
+  <section class="card" aria-labelledby="t-title">
     <h2 id="t-title">
       <span class="tile tile-lg g-violet">
         <i class="fa-solid fa-key"></i>
@@ -401,6 +546,19 @@
       <span class="step-tag">الخطوة 1</span>
     </h2>
     <p class="hint">ستجده في لوحة تحكم InstaBox الخاصة بك: إما رمز الوصول وحده الذي يبدأ بـ <span class="mono" dir="ltr">ibssh_</span>، أو أمر SSH الكامل كما هو، وستستخرج الصفحة الرمز منه تلقائيًا.</p>
+
+    <div class="gateway">
+      <span class="tile tile-lg g-amber">
+        <i class="fa-solid fa-rocket"></i>
+      </span>
+      <div class="gateway-body">
+        <p><strong>ليس لديك رمز الوصول بعد؟</strong> افتح لوحة تحكم InstaBox وانسخه من هناك ثم عُد إلى هذه الصفحة والصقه.</p>
+        <a class="gateway-btn" href="https://instabox.sh" target="_blank" rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          افتح منصة InstaBox
+        </a>
+      </div>
+    </div>
 
     <label class="field-label" for="tokenInput">رمز وصول InstaBox</label>
     <div class="input-row">
